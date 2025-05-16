@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사랑하는 남편에게</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&family=Gowun+Batang:wght@400;700&display=swap');
+        
+        body {
+            background-color: #f9f3f5;
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .letter-container {
+            max-width: 600px;
+            width: 90%;
+            background: white;
+            background-image: 
+                radial-gradient(#f9e1e8 10%, transparent 11%), 
+                radial-gradient(#f9e1e8 10%, transparent 11%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            background-repeat: repeat;
+            background-blend-mode: multiply;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .letter-inner {
+            background-color: rgba(255, 255, 255, 0.92);
+            padding: 2.5rem;
+            border-radius: 8px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(194, 91, 124, 0.1);
+            border: 1px solid rgba(194, 91, 124, 0.1);
+        }
+        
+        .letter-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .letter-title {
+            font-family: 'Gowun Batang', serif;
+            font-size: 2rem;
+            color: #c25b7c;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 1px rgba(194, 91, 124, 0.2);
+        }
+        
+        .letter-date {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .letter-content {
+            font-family: 'Gowun Batang', serif;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            background: 
+                linear-gradient(90deg, rgba(194, 91, 124, 0.03) 0%, transparent 15%), 
+                linear-gradient(90deg, transparent 85%, rgba(194, 91, 124, 0.03) 100%);
+        }
+        
+        .letter-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .emphasis {
+            color: #c25b7c;
+            font-weight: 500;
+        }
+        
+        .letter-signature {
+            text-align: right;
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 2rem;
+            color: #c25b7c;
+        }
+        
+        .corner-decoration {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.25;
+            z-index: 1;
+        }
+        
+        .top-left {
+            top: 0;
+            left: 0;
+            border-top: 3px solid #c25b7c;
+            border-left: 3px solid #c25b7c;
+            border-top-left-radius: 10px;
+        }
+        
+        .bottom-right {
+            bottom: 0;
+            right: 0;
+            border-bottom: 3px solid #c25b7c;
+            border-right: 3px solid #c25b7c;
+            border-bottom-right-radius: 10px;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-10px) scale(1.1); opacity: 0.7; }
+            100% { transform: translateY(0) scale(1); opacity: 0.5; }
+        }
+        
+        .floating-heart {
+            position: absolute;
+            color: #c25b7c;
+            font-size: 1.5rem;
+            opacity: 0.5;
+            animation: float 4s ease-in-out infinite;
+            z-index: 3;
+        }
+        
+        .heart-1 { 
+            top: 10%; 
+            right: 7%; 
+            animation-delay: 0s;
+        }
+        
+        .heart-2 { 
+            top: 30%; 
+            left: 5%; 
+            animation-delay: 1s;
+        }
+        
+        .heart-3 { 
+            bottom: 15%; 
+            left: 10%; 
+            animation-delay: 2s;
+        }
+        
+        .heart-4 { 
+            bottom: 30%; 
+            right: 8%; 
+            animation-delay: 1.5s;
+        }
+        
+        .heart-5 { 
+            top: 50%; 
+            right: 5%; 
+            animation-delay: 0.5s;
+        }
+
+        .ribbon {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            z-index: 4;
+        }
+
+        .ribbon-top-right {
+            top: -10px;
+            right: -10px;
+        }
+
+        .ribbon-top-right::before,
+        .ribbon-top-right::after {
+            content: "";
+            position: absolute;
+            border-top: 3px solid rgba(194, 91, 124, 0.4);
+            border-right: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            border-left: 3px solid rgba(194, 91, 124, 0.4);
+            bottom: 0;
+            right: 0;
+        }
+
+        .ribbon-top-right::before {
+            top: 0;
+            left: 0;
+        }
+        
+        @media (max-width: 600px) {
+            .letter-container {
+                padding: 2rem;
+            }
+            
+            .letter-inner {
+                padding: 1.5rem;
+            }
+            
+            .letter-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="corner-decoration top-left"></div>
+        <div class="corner-decoration bottom-right"></div>
+        <div class="ribbon ribbon-top-right"></div>
+        
+        <div class="floating-heart heart-1">♥</div>
+        <div class="floating-heart heart-2">♥</div>
+        <div class="floating-heart heart-3">♥</div>
+        <div class="floating-heart heart-4">♥</div>
+        <div class="floating-heart heart-5">♥</div>
+        
+        <div class="letter-inner">
+            <div class="letter-header">
+                <h1 class="letter-title">사랑하는 내 남편에게</h1>
+                <div class="letter-date">2025년 5월 17일</div>
+            </div>
+            
+            <div class="letter-content">
+                <p>
+                    하루 종일 내 생각만 하고, 내 걱정만 하는 거 다 알아.
+                </p>
+                <p>
+                    내가 말하지 않아도, 늘 내 마음을 먼저 헤아리는 당신. <span class="emphasis">고맙다고 말하고 싶어. 진심으로.</span>
+                </p>
+                <p>
+                    당신 마음도 몰라주고 항상 필사적으로 앞으로 달려나가기만 해서 미안해. 멈춰서 돌아볼 여유도 없이 앞만 보고 달려왔던 나였지만, 그런 내 모습도 이해해줘서 고마워. 
+                </p>
+                <p>
+                    하지만 그걸 알아줘. <span class="emphasis">당신이 내 뒤에서 든든하게 같이 달려주고 있다는 걸 알기에, 내가 넘어지더라도 기댈 곳이 있다는 걸 알기에, 더 힘차게 달릴 수 있는 거야.</span>
+                </p>
+                <p>
+                    사랑해. 나의 작은 프랑켄슈타인.
+                </p>
+            </div>
+            
+            <div class="letter-signature">
+                영원히 당신을 사랑하는, 나로부터
+            </div>
+        </div>
+    </div>
+</body>
+</html>
